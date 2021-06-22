@@ -140,15 +140,15 @@ a{color: inherit; text-decoration: none;}
     }
     .site > .logo{
         /* border: 1px solid red; */
-        height: 68px;
+        height: 63px;
         width: 68px;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 68px;
         border-radius: 100%;
-        margin-top: -6px;
-        margin-bottom: 6px; 
+        /* margin-top: -5px; */
+        margin-bottom: 5px; 
         color: rgb(216, 214, 214);
     }
     .site > .logo > img{
