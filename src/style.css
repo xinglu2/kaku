@@ -1,0 +1,472 @@
+*{box-sizing: border-box;}
+*::after,*::before{box-sizing: border-box;}
+*{margin: 0; padding: 0;}
+ol,ul{list-style: none;}
+a{color: inherit; text-decoration: none;}
+
+@media(max-width: 500px){
+    body{
+        width: 100%;
+    }
+    img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .sidebar > header{
+        height: 66px;  
+        display: flex;    
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2C2E2F;
+    }
+    .sidebar > header > img{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    header > svg{
+        /* border: tomato 1px solid; */
+        width: 25px;
+        margin-right: 16px;
+        height: 25px;
+    }
+    .sidebar-main{
+        border: solid 1px rgb(70, 69, 69);
+        display: none;
+        background-color: #2C2E2F;
+        width: 240px;
+        position: absolute;
+        z-index: 2;
+    }
+    .sidebar-main > ul > a > li > span:hover{
+        font-size: 18px;
+        color: rgb(230, 178, 36);
+    }
+    .sidebar-main > ul > a > .sidebar-item > span{
+        color: #c6c9cf;
+        line-height: 50px;
+        max-height: 50px;
+        margin-left: 15px;
+    }
+    .sidebar-main > ul > a > .linkme{
+       padding-top: 28px;
+    }
+    .sidebar-item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 15px;
+    }
+    .sidebar-item > .icon{
+        width: 20px;
+        height: 20px;
+        fill: white;
+    } 
+    .content{
+        border: rgb(20, 20, 20) solid 1px;
+        background-color: #1B1D1F;
+    }
+    .globalHeader{
+        /* border: springgreen solid 1px; */
+        margin: 39px 28px; 
+        margin-bottom: -18px;    
+    }
+    .searchForm{
+        display: flex;
+        justify-content: space-between;
+    }
+    .searchForm > input{
+        /* border: rgb(219, 31, 31) solid 1px; */        
+        width: 100%;
+        margin-right: 13px;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #555151;
+        background-color: #2C2E2F;
+        border-radius: 50px;
+    }
+    .searchForm > button{
+        /* border: 1px red solid; */
+        white-space: nowrap;
+        padding: 0 28px;
+        border: 1px solid #555151;
+        background: #2C2E2F;
+        color: rgb(163, 159, 159);
+        font-size: 18px;
+        border-radius: 50px;
+    } 
+    .globalMain > .piece{
+        margin-top: 55px;
+        /* border: red solid 1px; */
+    }
+    .globalMain > .piece > .title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color:#878787;
+    }
+    .title > .icon{
+        height: 22px;
+        width: 40px;
+        fill: #878787;
+    }
+    .title > h2{
+        padding-left: 15px;
+    
+    }
+    .siteList{
+        /* border: 1px solid red; */
+        display: flex;
+        margin-left: 0px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 28px;
+    }
+    .siteList > a > li{
+        margin-bottom: 20px;
+    }
+    .siteList .site{
+        /* border: 1px solid #dddddd; */
+        background-color: #2C2E2F;
+        width: 145px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: 2C2E2F;
+        border-radius: 4px;
+        padding: 16px 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .site > .logo{
+        /* border: 1px solid red; */
+        height: 68px;
+        width: 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 68px;
+        border-radius: 100%;
+        margin-top: -6px;
+        margin-bottom: 6px; 
+        color: rgb(216, 214, 214);
+    }
+    .site > .logo > img{
+        border-radius: 100%;
+        margin-top: -6px;
+        margin-bottom: 6px;     
+    }
+    .site > .link{
+        /* border: 1px solid red; */
+        color: rgb(216, 214, 214);
+        font-size: 14px;
+        margin-bottom: -4px;
+    }
+    #自定义 > .siteList{
+        /* border: orangered 1px solid; */
+        display: flex;
+        justify-content: space-between;
+    }
+    #自定义 > .siteList > li{
+        margin-right: 0;
+    }
+    .siteList .addButton{
+        width: 145px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #2C2E2F;
+        border-radius: 4px;
+        padding: 16px 0;
+        cursor: pointer;
+    }
+    .siteList .addButton .icon{
+        height: 58px;
+        width: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 68px;
+        border-radius: 100%;
+        fill: whitesmoke;
+        margin-bottom: 10px;
+    }
+    .siteList .addButton .text{
+        color: rgb(216, 214, 214);
+        font-size: 14px;
+        margin-bottom: -4px;
+    }
+    .site > .close{
+        cursor: default;
+    }
+    .site > .close > .icon{
+        /* border: red solid 1px; */
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 1em;
+        height: 1em;
+        color: whitesmoke;
+    }
+    .site:hover > .close{
+        display: block;
+    }
+    .lastList >li{
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+    #自定义{
+        padding-bottom: 90px;
+    }
+    #自定义 > .ps{
+        display: none;
+    }
+}
+    
+
+
+
+@media(min-width: 500px){
+    img{max-width: 100%; max-height: 100%;min-width: 100%; min-height: 100%; }
+    body{
+        background-color: #1B1D1F;
+    }
+    .globalContent{
+        /* border: 1px red solid; */
+        display: flex;
+        justify-content: space-between;
+    }
+    .sidebar{
+        width: 200px;
+        min-width: 200px;
+        position: fixed;
+        height: 700px;
+        background-color: #2C2E2F;
+    }
+    .sidebar > header{
+        /* border: 1px rgb(10, 22, 17) solid; */
+        height: 80px;
+        margin: 16px 0;
+        position: relative;
+    }
+    .sidebar > header > img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        
+    }
+    header > svg{
+        display: none;
+    }
+    .sidebar-item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 15px;
+    }
+    .sidebar-item > .icon{
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+    .sidebar-main > ul > a > li > span:hover{
+        font-size: 18px;
+        color: rgb(230, 178, 36);
+    }
+    .sidebar-main > ul > a > .sidebar-item > span{
+        color: #c6c9cf;
+        line-height: 50px;
+        max-height: 50px;
+        /* border: 1px rgb(241, 243, 242) solid; */
+        margin-left: 15px;
+    }
+    .sidebar-main > ul > a > .linkme{
+        /* border: solid whitesmoke 1px; */
+        position: fixed;
+        left: 0;
+        bottom: 10px;
+    }
+    .content{
+        width: 100%;
+        padding: 0 202px;
+    }
+    .searchForm{
+        display: flex;
+        /* justify-content: space-between; */
+    }
+    .globalHeader{
+        /* border: springgreen solid 1px; */
+        margin-top: 98px;
+        max-width: 780px;
+        min-width: 780px;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .searchForm > input{
+        /* border: rgb(219, 31, 31) solid 1px; */
+        width: 100%;
+        margin-right: 13px;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #555151;
+        background-color: #2C2E2F;
+        border-radius: 50px;
+    }
+    .searchForm > button{
+        /* border: 1px red solid; */
+        white-space: nowrap;
+        padding: 0 28px;
+        border: 1px solid #555151;
+        background: #2C2E2F;
+        color: white;
+        font-size: 18px;
+        border-radius: 50px;
+    }
+    .globalMain{
+        /* border: white 1px solid; */
+        max-width: 800px;
+        min-width: 800px;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .globalMain > .piece{
+        margin-top: 55px;
+        /* border: red solid 1px; */
+    }
+    .globalMain > .piece > .title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color:#878787;
+    }
+    .title > .icon{
+        height: 22px;
+        width: 40px;
+        fill: #878787;
+    }
+    .title > h2{
+        padding-left: 15px;
+    
+    }
+    .siteList{
+        /* border: 1px solid red; */
+        display: flex;
+        margin-left: 0px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-right: -100px;
+        margin: 28px;
+        margin-left: 0;
+    }
+    .siteList > a > li{
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+    .siteList .site{
+        /* border: 1px solid #dddddd; */
+        background-color: #2C2E2F;
+        width: 133px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: 2C2E2F;
+        border-radius: 4px;
+        padding: 16px 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .site > .logo{
+        /* border: 1px solid red; */
+        height: 68px;
+        width: 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 68px;
+        border-radius: 100%;
+        margin-top: -6px;
+        margin-bottom: 6px;
+        color: rgb(216, 214, 214);
+    }
+    .site > .logo > img{
+        border-radius: 100%;
+        
+    }
+    .site > .link{
+        /* border: 1px solid red; */
+        color: rgb(216, 214, 214);
+        font-size: 14px;
+        margin-bottom: -4px;
+    }
+    .lastList > .site{
+        border: 1px solid #dddddd;
+        width: 146px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: white;
+        border-radius: 4px;
+        padding: 22px 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .siteList .addButton{
+        width: 133px;
+        /* height: 127px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #2C2E2F;
+        border-radius: 4px;
+        padding: 16px 0;
+        cursor: pointer;
+    }
+    .siteList .addButton .icon{
+        height: 58px;
+        width: 58px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 68px;
+        border-radius: 100%;
+        fill: whitesmoke;
+    }
+    .siteList .addButton .text{
+        color: rgb(216, 214, 214);
+        font-size: 14px;
+        margin-bottom: -4px;
+    }
+    .site > .close{
+        display: none;
+        cursor: default;
+    }
+    .site > .close > .icon{
+        /* border: red solid 1px; */
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 1em;
+        height: 1em;
+        color: whitesmoke;
+    }
+    .site:hover > .close{
+        display: block;
+    }
+    .lastList >li{
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+    #自定义{
+        padding-bottom: 90px;
+    }
+    #自定义 > .ps{
+        background-color: #2C2E2F;
+        color: whitesmoke;
+    }
+}
