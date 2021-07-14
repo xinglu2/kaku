@@ -1,3 +1,23 @@
+const $button = $('#shift')
+const $theme = $('.theme')
+// jQuery.preloadImages = function () {
+//     for (let i = 0; i < arguments.length; i++) {
+//         $("<img/>").attr('src', arguments)
+//     }
+// }
+// $.preloadImages('./images/dark.png').prepend($('#globalLogo'))
+let k = 1
+$button.on('click', () => {
+    if (k === 1) {
+        $theme.addClass('active')
+        $('#shiftIcon').attr('href','#icon-dark')
+        k = 0
+    } else {
+        $theme.removeClass('active')
+        $('#shiftIcon').attr('href','#icon-light')
+        k = 1
+    }
+})
 const PC = window.matchMedia('(min-width:500px)')
 const sidebarHeight = () => {
     if (PC.matches) {
@@ -46,8 +66,8 @@ const render = () => {
     $lastList.find('li:not(.last)').remove()
     hashMap.forEach((node, index) => {
         const $li = $(`<li id="touchArea">
-            <div class="site">
-                <div class="logo">${node.logo[0]}</div>
+            <div class="site theme">
+                <div class="logo theme">${node.logo[0]}</div>
                 <div class="link">${removePre(node.url)}</div>
                 <div class="close">
                     <svg class="icon">
@@ -96,3 +116,4 @@ $(document).on('keypress', (e) => {
         }
     }
 })
+

@@ -118,6 +118,26 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
+var $button = $('#shift');
+var $theme = $('.theme'); // jQuery.preloadImages = function () {
+//     for (let i = 0; i < arguments.length; i++) {
+//         $("<img/>").attr('src', arguments)
+//     }
+// }
+// $.preloadImages('./images/dark.png').prepend($('#globalLogo'))
+
+var k = 1;
+$button.on('click', function () {
+  if (k === 1) {
+    $theme.addClass('active');
+    $('#shiftIcon').attr('href', '#icon-dark');
+    k = 0;
+  } else {
+    $theme.removeClass('active');
+    $('#shiftIcon').attr('href', '#icon-light');
+    k = 1;
+  }
+});
 var PC = window.matchMedia('(min-width:500px)');
 
 var sidebarHeight = function sidebarHeight() {
@@ -173,7 +193,7 @@ var removePre = function removePre(url) {
 var render = function render() {
   $lastList.find('li:not(.last)').remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li id=\"touchArea\">\n            <div class=\"site\">\n                <div class=\"logo\">".concat(node.logo[0], "</div>\n                <div class=\"link\">").concat(removePre(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-delete\"></use>\n                    </svg>\n                </div>\n            </div>\n    </li>")).insertBefore($lastLi);
+    var $li = $("<li id=\"touchArea\">\n            <div class=\"site theme\">\n                <div class=\"logo theme\">".concat(node.logo[0], "</div>\n                <div class=\"link\">").concat(removePre(node.url), "</div>\n                <div class=\"close\">\n                    <svg class=\"icon\">\n                        <use xlink:href=\"#icon-delete\"></use>\n                    </svg>\n                </div>\n            </div>\n    </li>")).insertBefore($lastLi);
     $li.on('click', function (e) {
       window.open(node.url);
     });
@@ -246,7 +266,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50743" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56152" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
