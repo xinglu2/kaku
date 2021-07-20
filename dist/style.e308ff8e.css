@@ -1,88 +1,118 @@
-*{box-sizing: border-box;}
-*::after,*::before{box-sizing: border-box;}
-*{margin: 0; padding: 0;}
-ol,ul{list-style: none;}
-a{color: inherit; text-decoration: none;}
+* {
+    box-sizing: border-box;
+}
 
-@media(max-width: 500px){
-    body{
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media(max-width: 500px) {
+    body {
         width: 100%;
     }
-    img{
+
+    img {
         max-width: 100%;
         max-height: 100%;
     }
-    .sidebar > header{
+
+    .sidebar>header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 66px;  
-        display: flex;    
+        height: 66px;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #2C2E2F;
         z-index: 10;
-        background-color: springgreen;
     }
-    .sidebar > header > img{
-        padding-top: 10px;
-        padding-bottom: 10px;
+
+    .sidebar>header>img {
+        padding-left: 10px;
     }
-    header > svg{
+
+    header>svg {
         /* border: tomato 1px solid; */
         width: 25px;
         margin-right: 16px;
         height: 25px;
     }
-    .sidebar-main{
+
+    .sidebar-main {
         border: solid 1px rgb(70, 69, 69);
         display: none;
         background-color: #2C2E2F;
         width: 240px;
-        position: absolute;
+        position: fixed;
         z-index: 2;
     }
-    .sidebar-main > ul > a > li > span:hover{
+
+    .sidebar-main>ul>a>li>span:hover {
         font-size: 18px;
         color: rgb(230, 178, 36);
     }
-    .sidebar-main > ul > a > .sidebar-item > span{
+
+    .sidebar-main>ul>a>.sidebar-item>span {
         color: #c6c9cf;
         line-height: 50px;
         max-height: 50px;
         margin-left: 15px;
     }
-    .sidebar-main > ul > a > .linkme{
-       padding-top: 28px;
+
+    .sidebar-main>ul>a>.linkme {
+        padding-top: 28px;
     }
-    .sidebar-item{
+
+    .sidebar-item {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         margin-left: 15px;
     }
-    .sidebar-item > .icon{
+
+    .sidebar-item>.icon {
         width: 20px;
         height: 20px;
         fill: white;
-    } 
-    .content{
+    }
+
+    .content {
         border: rgb(20, 20, 20) solid 1px;
         background-color: #1B1D1F;
         margin-top: 66px;
     }
-    .globalHeader{
+
+    .globalHeader {
         /* border: springgreen solid 1px; */
-        margin: 39px 28px; 
-        margin-bottom: -18px;    
+        margin: 39px 28px;
+        margin-bottom: -18px;
     }
-    .searchForm{
+
+    .searchForm {
         display: flex;
         justify-content: space-between;
     }
-    .searchForm > input{
-        /* border: rgb(219, 31, 31) solid 1px; */        
+
+    .searchForm>input {
+        /* border: rgb(219, 31, 31) solid 1px; */
         width: 100%;
         margin-right: 13px;
         height: 40px;
@@ -92,10 +122,12 @@ a{color: inherit; text-decoration: none;}
         border-radius: 50px;
         outline: none;
     }
-    .searchForm > input:focus{
-        border: solid rgb(245,235,235);
+
+    .searchForm>input:focus {
+        border: solid rgb(245, 235, 235);
     }
-    .searchForm > button{
+
+    .searchForm>button {
         /* border: 1px red solid; */
         white-space: nowrap;
         padding: 0 28px;
@@ -104,27 +136,32 @@ a{color: inherit; text-decoration: none;}
         color: rgb(163, 159, 159);
         font-size: 18px;
         border-radius: 50px;
-    } 
-    .globalMain > .piece{
+    }
+
+    .globalMain>.piece {
         margin-top: 55px;
         /* border: red solid 1px; */
     }
-    .globalMain > .piece > .title{
+
+    .globalMain>.piece>.title {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        color:#878787;
+        color: #878787;
     }
-    .title > .icon{
+
+    .title>.icon {
         height: 22px;
         width: 40px;
         fill: #878787;
     }
-    .title > h2{
+
+    .title>h2 {
         padding-left: 15px;
-    
+
     }
-    .siteList{
+
+    .siteList {
         /* border: 1px solid red; */
         display: flex;
         margin-left: 0px;
@@ -132,10 +169,12 @@ a{color: inherit; text-decoration: none;}
         flex-wrap: wrap;
         margin: 28px;
     }
-    .siteList > a > li{
+
+    .siteList>a>li {
         margin-bottom: 20px;
     }
-    .siteList .site{
+
+    .siteList .site {
         /* border: 1px solid #dddddd; */
         background-color: #2C2E2F;
         width: 145px;
@@ -149,7 +188,8 @@ a{color: inherit; text-decoration: none;}
         position: relative;
         cursor: pointer;
     }
-    .site > .logo{
+
+    .site>.logo {
         /* border: 1px solid red; */
         height: 63px;
         width: 68px;
@@ -159,37 +199,41 @@ a{color: inherit; text-decoration: none;}
         font-size: 68px;
         border-radius: 100%;
         /* margin-top: -5px; */
-        margin-bottom: 5px; 
+        margin-bottom: 5px;
         color: rgb(216, 214, 214);
     }
-    .site > .logo > img{
+
+    .site>.logo>img {
         border-radius: 100%;
         margin-top: -6px;
-        margin-bottom: 6px;     
+        margin-bottom: 6px;
     }
-    .site > .link{
+
+    .site>.link {
         /* border: 1px solid red; */
         color: rgb(216, 214, 214);
         font-size: 14px;
         margin-bottom: -4px;
         line-height: 16px;
     }
-    #自定义 > .siteList{
+
+    #自定义>.siteList {
         /* border: orangered 1px solid; */
         display: flex;
         justify-content: space-between;
     }
 
-    #touchArea{
+    #touchArea {
         /* border: springgreen solid 1px; */
-        
+
     }
-    
-    #自定义 > .siteList > li{
+
+    #自定义>.siteList>li {
         margin-right: 0;
-        
+
     }
-    .siteList .addButton{
+
+    .siteList .addButton {
         width: 145px;
         display: flex;
         justify-content: center;
@@ -200,7 +244,8 @@ a{color: inherit; text-decoration: none;}
         padding: 16px 0;
         cursor: pointer;
     }
-    .siteList .addButton .icon{
+
+    .siteList .addButton .icon {
         height: 58px;
         width: 58px;
         display: flex;
@@ -211,18 +256,22 @@ a{color: inherit; text-decoration: none;}
         fill: whitesmoke;
         margin-bottom: 10px;
     }
-    .siteList .addButton .text{
+
+    .siteList .addButton .text {
         color: rgb(216, 214, 214);
         font-size: 14px;
         margin-bottom: -4px;
     }
-    .addButton > .text{
+
+    .addButton>.text {
         line-height: 16px;
     }
-    .site > .close{
+
+    .site>.close {
         cursor: default;
     }
-    .site > .close > .icon{
+
+    .site>.close>.icon {
         /* border: red solid 1px; */
         position: absolute;
         top: 5px;
@@ -231,102 +280,131 @@ a{color: inherit; text-decoration: none;}
         height: 1em;
         color: whitesmoke;
     }
-    .site:hover > .close{
+
+    .site:hover>.close {
         display: block;
     }
-    .lastList >li{
+
+    .lastList>li {
         margin-bottom: 20px;
         /* margin-right: 20px; */
     }
-    #自定义{
+
+    #自定义 {
         padding-bottom: 90px;
     }
-    .ps{
+
+    .ps {
         display: none;
     }
 }
-    
 
 
 
-@media(min-width: 500px){
-    img{max-width: 100%; max-height: 100%;min-width: 100%; min-height: 100%; }
-    body{
+
+@media(min-width: 500px) {
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    body {
         background-color: #1B1D1F;
     }
-    .globalContent{
+
+    #globalLogal {
+        height: 200px !important;
+    }
+
+    .globalContent {
         /* border: 1px red solid; */
         display: flex;
         justify-content: space-between;
     }
-    .sidebar{
+
+    .sidebar {
         width: 200px;
         min-width: 200px;
         position: fixed;
         height: 700px;
         background-color: #2C2E2F;
     }
-    .sidebar > header{
+
+    .sidebar>header {
         /* border: 1px rgb(10, 22, 17) solid; */
-        height: 80px;
-        margin: 16px 0;
+        height: 168px;
+        margin-top: -10px;
+        margin-bottom: -8px;
         position: relative;
     }
-    .sidebar > header > img{
+
+    .sidebar>header>img {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
-        
+        transform: translate(-50%, -50%);
+
     }
-    header > svg{
+
+    header>svg {
         display: none;
     }
-    .sidebar-item{
+
+    .sidebar-item {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        margin-left: 15px;
+        margin-left: 10px;
     }
-    .sidebar-item > .icon{
+
+    .sidebar-item>.icon {
         width: 20px;
         height: 20px;
         fill: white;
     }
-    .sidebar-main > ul > a > li > span:hover{
+
+    .sidebar-main>ul>a>li>span:hover {
         font-size: 18px;
         color: rgb(230, 178, 36);
     }
-    .sidebar-main > ul > a > .sidebar-item > span{
+
+    .sidebar-main>ul>a>.sidebar-item>span {
         color: #c6c9cf;
         line-height: 50px;
         max-height: 50px;
         /* border: 1px rgb(241, 243, 242) solid; */
         margin-left: 15px;
     }
-    .sidebar-main > ul > a > .linkme{
+
+    .sidebar-main>ul>a>.linkme {
         /* border: solid whitesmoke 1px; */
         position: fixed;
         left: 0;
         bottom: 10px;
     }
-    .content{
+
+    .content {
         width: 100%;
         padding: 0 202px;
     }
-    .searchForm{
+
+    .searchForm {
         display: flex;
         /* justify-content: space-between; */
     }
-    .globalHeader{
+
+    .globalHeader {
         /* border: springgreen solid 1px; */
         margin-top: 98px;
         max-width: 780px;
         min-width: 780px;
         margin-left: auto;
-        margin-right: auto; 
+        margin-right: auto;
     }
-    .searchForm > input{
+
+    .searchForm>input {
         /* border: rgb(219, 31, 31) solid 1px; */
         width: 100%;
         margin-right: 13px;
@@ -338,10 +416,12 @@ a{color: inherit; text-decoration: none;}
         outline: none;
 
     }
-    .searchForm > input:focus{
-        border: solid rgb(245,235,235);
+
+    .searchForm>input:focus {
+        border: solid rgb(245, 235, 235);
     }
-    .searchForm > button{
+
+    .searchForm>button {
         /* border: 1px red solid; */
         white-space: nowrap;
         padding: 0 28px;
@@ -351,33 +431,39 @@ a{color: inherit; text-decoration: none;}
         font-size: 18px;
         border-radius: 50px;
     }
-    .globalMain{
+
+    .globalMain {
         /* border: white 1px solid; */
         max-width: 800px;
         min-width: 800px;
         margin-left: auto;
-        margin-right: auto; 
+        margin-right: auto;
     }
-    .globalMain > .piece{
+
+    .globalMain>.piece {
         margin-top: 55px;
         /* border: red solid 1px; */
     }
-    .globalMain > .piece > .title{
+
+    .globalMain>.piece>.title {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        color:#878787;
+        color: #878787;
     }
-    .title > .icon{
+
+    .title>.icon {
         height: 22px;
         width: 40px;
         fill: #878787;
     }
-    .title > h2{
+
+    .title>h2 {
         padding-left: 15px;
-    
+
     }
-    .siteList{
+
+    .siteList {
         /* border: 1px solid red; */
         display: flex;
         margin-left: 0px;
@@ -387,11 +473,13 @@ a{color: inherit; text-decoration: none;}
         margin: 28px;
         margin-left: 0;
     }
-    .siteList > a > li{
+
+    .siteList>a>li {
         margin-bottom: 20px;
         margin-right: 20px;
     }
-    .siteList .site{
+
+    .siteList .site {
         /* border: 1px solid #dddddd; */
         background-color: #2C2E2F;
         width: 133px;
@@ -405,7 +493,8 @@ a{color: inherit; text-decoration: none;}
         position: relative;
         cursor: pointer;
     }
-    .site > .logo{
+
+    .site>.logo {
         /* border: 1px solid red; */
         height: 68px;
         width: 68px;
@@ -418,17 +507,20 @@ a{color: inherit; text-decoration: none;}
         margin-bottom: 6px;
         color: rgb(216, 214, 214);
     }
-    .site > .logo > img{
+
+    .site>.logo>img {
         border-radius: 100%;
-        
+
     }
-    .site > .link{
+
+    .site>.link {
         /* border: 1px solid red; */
         color: rgb(216, 214, 214);
         font-size: 14px;
         margin-bottom: -4px;
     }
-    .lastList > .site{
+
+    .lastList>.site {
         border: 1px solid #dddddd;
         width: 146px;
         display: flex;
@@ -441,7 +533,8 @@ a{color: inherit; text-decoration: none;}
         position: relative;
         cursor: pointer;
     }
-    .siteList .addButton{
+
+    .siteList .addButton {
         width: 133px;
         /* height: 127px; */
         display: flex;
@@ -453,7 +546,8 @@ a{color: inherit; text-decoration: none;}
         padding: 16px 0;
         cursor: pointer;
     }
-    .siteList .addButton .icon{
+
+    .siteList .addButton .icon {
         height: 58px;
         width: 58px;
         margin-bottom: 10px;
@@ -464,16 +558,19 @@ a{color: inherit; text-decoration: none;}
         border-radius: 100%;
         fill: whitesmoke;
     }
-    .siteList .addButton .text{
+
+    .siteList .addButton .text {
         color: rgb(216, 214, 214);
         font-size: 14px;
         margin-bottom: -4px;
     }
-    .site > .close{
+
+    .site>.close {
         display: none;
         cursor: default;
     }
-    .site > .close > .icon{
+
+    .site>.close>.icon {
         /* border: red solid 1px; */
         position: absolute;
         top: 5px;
@@ -482,98 +579,120 @@ a{color: inherit; text-decoration: none;}
         height: 1em;
         color: whitesmoke;
     }
-    .site:hover > .close{
+
+    .site:hover>.close {
         display: block;
     }
-    .lastList >li{
+
+    .lastList>li {
         margin-bottom: 20px;
         margin-right: 20px;
     }
-    #自定义{
+
+    #自定义 {
         padding-bottom: 90px;
     }
-    #自定义 > .ps{
+
+    #自定义>.ps {
         background-color: #2C2E2F;
         color: whitesmoke;
     }
-    .ps.active{
+
+    .ps.active {
         background-color: #dadce0 !important;
         color: black !important;
-    } 
+    }
 }
-#shift{
+
+#shift {
     /* position: absolute; */
     bottom: 10vh;
     right: 10vh;
     border-radius: 48%;
-   border: rgb(175, 165, 165) solid 1px;
-   position: fixed;
+    border: rgb(175, 165, 165) solid 1px;
+    position: fixed;
 }
-#shift > .icon{
+
+#shift>.icon {
     height: 50px;
     width: 50px;
     border: cornsilk solid 1px;
     border-radius: 50%;
 }
-@media(max-width:500px){
-    #shift{
+
+@media(max-width:500px) {
+    #shift {
         bottom: 10vw;
         right: 10vw;
         opacity: 0.5;
     }
-    .content.active{
+
+    .content.active {
         background-color: #FFFFFF;
     }
-    .sidebar-main.active{
+
+    .sidebar-main.active {
         background-color: #EAEAEB;
     }
 }
 
-body.active{
+body.active {
     background-color: #FFFFFF;
 }
-.sidebar.active{
+
+.sidebar.active {
     background-color: #EAEAEB;
 }
-.sideText.active{
+
+.sideText.active {
     color: rgb(70, 69, 69) !important;
 }
-.sidebar-item>.icon.active{
+
+.sidebar-item>.icon.active {
     fill: rgb(70, 69, 69);
 }
-.search.active{
+
+.search.active {
     background-color: #EAEAEB;
     border: 1px solid #dfe1e5;
     color: black;
 }
-.site.active{
+
+.site.active {
     background-color: #F8F9FA;
     border: 1px solid #dadce0;
 }
-.active > .link{
+
+.active>.link {
     color: black;
 }
- 
-.logo.active{
+
+.logo.active {
     color: black;
 }
-.addButton.active{
+
+.addButton.active {
     background-color: #F8F9FA !important;
     border: 1px solid #dadce0;
 }
-.addButton.active .icon{
+
+.addButton.active .icon {
     fill: rgb(248, 247, 247) !important;
 }
-.text.theme.active{
+
+.text.theme.active {
     color: black;
 }
-header>img{
+
+header>img {
     z-index: 5;
 }
-#touchArea>.theme.active>.logo{
+
+#touchArea>.theme.active>.logo {
     color: black;
 }
-.last>.active>.icon-wrapper>.icon{
+
+.last>.active>.icon-wrapper>.icon {
     fill: black !important;
 }
 

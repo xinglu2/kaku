@@ -117,85 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"back.js":[function(require,module,exports) {
-!function () {
-  function n(n, e, t) {
-    return n.getAttribute(e) || t;
+})({"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  function e(n) {
-    return document.getElementsByTagName(n);
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
   }
 
-  function t() {
-    var t = e("script"),
-        o = t.length,
-        i = t[o - 1];
-    return {
-      l: o,
-      z: n(i, "zIndex", -1),
-      o: n(i, "opacity", .5),
-      c: n(i, "color", "0,255,127"),
-      n: n(i, "count", 159)
-    };
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
 
-  function o() {
-    a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  }
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
 
-  function i() {
-    r.clearRect(0, 0, a, c);
-    var n, e, t, o, m, l;
-    s.forEach(function (i, x) {
-      for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) {
-        n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()));
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
       }
-    }), x(i);
-  }
+    }
 
-  var a,
-      c,
-      u,
-      m = document.createElement("canvas"),
-      d = t(),
-      l = "c_n" + d.l,
-      r = m.getContext("2d"),
-      x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
-    window.setTimeout(n, 1e3 / 45);
-  },
-      w = Math.random,
-      y = {
-    x: null,
-    y: null,
-    max: 2e4
-  };
+    cssTimeout = null;
+  }, 50);
+}
 
-  m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
-    n = n || window.event, y.x = n.clientX, y.y = n.clientY;
-  }, window.onmouseout = function () {
-    y.x = null, y.y = null;
-  };
-
-  for (var s = [], f = 0; d.n > f; f++) {
-    var h = w() * a,
-        g = w() * c,
-        v = 2 * w() - 1,
-        p = 2 * w() - 1;
-    s.push({
-      x: h,
-      y: g,
-      xa: v,
-      ya: p,
-      max: 6e3
-    });
-  }
-
-  u = s.concat([y]), setTimeout(function () {
-    i();
-  }, 100);
-}();
-},{}],"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js"}],"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -398,5 +387,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","back.js"], null)
-//# sourceMappingURL=/back.f1876002.js.map
+},{}]},{},["C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/main.js.map
