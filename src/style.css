@@ -23,7 +23,6 @@ a{color: inherit; text-decoration: none;}
         align-items: center;
         background-color: #2C2E2F;
         z-index: 10;
-        background-color: springgreen;
     }
     .sidebar > header > img{
         padding-top: 10px;
