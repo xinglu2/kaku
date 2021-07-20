@@ -13,11 +13,17 @@ a{color: inherit; text-decoration: none;}
         max-height: 100%;
     }
     .sidebar > header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 66px;  
         display: flex;    
         justify-content: space-between;
         align-items: center;
         background-color: #2C2E2F;
+        z-index: 10;
+        background-color: springgreen;
     }
     .sidebar > header > img{
         padding-top: 10px;
@@ -64,6 +70,7 @@ a{color: inherit; text-decoration: none;}
     .content{
         border: rgb(20, 20, 20) solid 1px;
         background-color: #1B1D1F;
+        margin-top: 66px;
     }
     .globalHeader{
         /* border: springgreen solid 1px; */
@@ -172,8 +179,15 @@ a{color: inherit; text-decoration: none;}
         display: flex;
         justify-content: space-between;
     }
+
+    #touchArea{
+        /* border: springgreen solid 1px; */
+        
+    }
+    
     #自定义 > .siteList > li{
         margin-right: 0;
+        
     }
     .siteList .addButton{
         width: 145px;
@@ -222,12 +236,12 @@ a{color: inherit; text-decoration: none;}
     }
     .lastList >li{
         margin-bottom: 20px;
-        margin-right: 20px;
+        /* margin-right: 20px; */
     }
     #自定义{
         padding-bottom: 90px;
     }
-    #自定义 > .ps{
+    .ps{
         display: none;
     }
 }
@@ -482,6 +496,10 @@ a{color: inherit; text-decoration: none;}
         background-color: #2C2E2F;
         color: whitesmoke;
     }
+    .ps.active{
+        background-color: #dadce0 !important;
+        color: black !important;
+    } 
 }
 #shift{
     /* position: absolute; */
@@ -535,10 +553,7 @@ body.active{
 .active > .link{
     color: black;
 }
-.ps.active{
-    background-color: #dadce0 !important;
-    color: black !important;
-}  
+ 
 .logo.active{
     color: black;
 }
@@ -554,4 +569,10 @@ body.active{
 }
 header>img{
     z-index: 5;
+}
+#touchArea>.theme.active>.logo{
+    color: black;
+}
+.last>.active>.icon-wrapper>.icon{
+    fill: black !important;
 }

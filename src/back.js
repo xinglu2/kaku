@@ -8,7 +8,7 @@
     function t() {
         var t = e("script"), o = t.length, i = t[o - 1];
         return {
-            l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "202,185,217"), n: n(i, "count", 99)
+            l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,255,127"), n: n(i, "count", 159)
         }
     }
     function o() {

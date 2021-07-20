@@ -127,17 +127,6 @@ var $theme = $('.theme'); // jQuery.preloadImages = function () {
 // $.preloadImages('./images/dark.png').prepend($('#globalLogo'))
 
 var k = 1;
-$button.on('click', function () {
-  if (k === 1) {
-    $theme.addClass('active');
-    $('#shiftIcon').attr('href', '#icon-dark');
-    k = 0;
-  } else {
-    $theme.removeClass('active');
-    $('#shiftIcon').attr('href', '#icon-light');
-    k = 1;
-  }
-});
 var PC = window.matchMedia('(min-width:500px)');
 
 var sidebarHeight = function sidebarHeight() {
@@ -238,7 +227,35 @@ $(document).on('keypress', function (e) {
     }
   }
 });
-},{}],"C:/Users/邢璐璐/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+console.log($('#touchArea>.theme'));
+$button.on('click', function () {
+  if (k === 1) {
+    $theme.addClass('active');
+    $('#touchArea>.theme').addClass('active');
+    $('#shiftIcon').attr('href', '#icon-dark');
+    k = 0;
+  } else {
+    $theme.removeClass('active');
+    $('#touchArea>.theme').removeClass('active');
+    $('#shiftIcon').attr('href', '#icon-light');
+    k = 1;
+  }
+});
+$('.mount').click(function () {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var $target = $(this.hash);
+    $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+
+    if ($target.length) {
+      var targetOffset = $target.offset().top;
+      $('html,body').animate({
+        scrollTop: targetOffset
+      }, 500);
+      return false;
+    }
+  }
+});
+},{}],"C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -266,7 +283,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56152" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50644" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -441,5 +458,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/邢璐璐/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
+},{}]},{},["C:/Users/27873/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
 //# sourceMappingURL=/main.1f19ae8e.js.map

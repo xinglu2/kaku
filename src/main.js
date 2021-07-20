@@ -7,17 +7,7 @@ const $theme = $('.theme')
 // }
 // $.preloadImages('./images/dark.png').prepend($('#globalLogo'))
 let k = 1
-$button.on('click', () => {
-    if (k === 1) {
-        $theme.addClass('active')
-        $('#shiftIcon').attr('href','#icon-dark')
-        k = 0
-    } else {
-        $theme.removeClass('active')
-        $('#shiftIcon').attr('href','#icon-light')
-        k = 1
-    }
-})
+
 const PC = window.matchMedia('(min-width:500px)')
 const sidebarHeight = () => {
     if (PC.matches) {
@@ -116,4 +106,31 @@ $(document).on('keypress', (e) => {
         }
     }
 })
-
+console.log($('#touchArea>.theme'))
+$button.on('click', () => {
+    if (k === 1) {
+        $theme.addClass('active')
+        $('#touchArea>.theme').addClass('active')
+        $('#shiftIcon').attr('href','#icon-dark')
+        k = 0
+    } else {
+        $theme.removeClass('active')
+        $('#touchArea>.theme').removeClass('active')
+        $('#shiftIcon').attr('href','#icon-light')
+        k = 1
+    }
+})
+$('.mount').click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var $target = $(this.hash);
+      $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+      if ($target.length) {
+        var targetOffset = $target.offset().top;
+        $('html,body').animate({
+          scrollTop: targetOffset
+        },
+          500);
+        return false;
+      }
+    }
+  });
